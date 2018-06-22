@@ -109,6 +109,8 @@ public class ImageBase : Rect {
 
     protected void CancelThisObjLeanTween() {
         CancelColorLeanTween();
+        CancelMovementTween();
+        CancelScalingTween();
     }
 
     private void CancelColorLeanTween() {
