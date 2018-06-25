@@ -34,3 +34,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/StreamingAssets/SampleVideo.mp4
+Assets/StreamingAssets/SampleSphere.mp4
+Assets/StreamingAssets/SampleCube.mp4
+Assets/StreamingAssets/SampleCube.mp4.meta
+Assets/StreamingAssets/SampleSphere.mp4.meta
+Assets/StreamingAssets/SampleVideo.mp4.meta
