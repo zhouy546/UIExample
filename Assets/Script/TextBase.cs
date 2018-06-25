@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent (typeof (Text))]
-public class TextBase : Rect {
+public class TextBase : IRect {
     public Text text;
 
     public string currentTextContent, StartTextContent;
@@ -116,20 +116,17 @@ public class TextBase : Rect {
         }
     }
 
-    protected void SetFrontTextSize(int size) {
+    public void SetFrontTextSize(int size) {
         text.fontSize = size;
     }
 
-    protected string GetText() {
+    public string GetText() {
         return text.text;
     }
 
-    protected void SetText(string _text) {
+    public void SetText(string _text) {
         text.text = currentTextContent = _text;
     }
-
-
-
 
     protected List<TextBase> GetChindrenText()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rect : MonoBehaviour {
+public class IRect : MonoBehaviour {
     public Vector3 startLocalPosition, currentLocalPosition;
     public Vector3 startScale, currentScale;
     public RectTransform rect;

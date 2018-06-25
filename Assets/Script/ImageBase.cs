@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
-public class ImageBase : Rect {
+public class ImageBase : IRect {
 
     protected delegate void OnAlphaChangeComplete();
 
