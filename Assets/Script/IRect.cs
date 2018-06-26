@@ -68,7 +68,7 @@ public class IRect : MonoBehaviour {
         this.gameObject.SetActive(false);
     }
 
-    protected float Mapping(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
+    public float Mapping(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
         float outVal = ((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin);
         return outVal;
     }

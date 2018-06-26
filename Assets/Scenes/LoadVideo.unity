@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 6013825}
   - component: {fileID: 6013824}
   - component: {fileID: 6013826}
+  - component: {fileID: 6013827}
+  - component: {fileID: 6013828}
   m_Layer: 5
   m_Name: MediaPlayer
   m_TagString: Untagged
@@ -213,9 +215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
   m_VideoPath: BigBuckBunny_360p30.mp4
-  m_AutoOpen: 1
-  m_AutoStart: 1
-  m_Loop: 1
+  m_AutoOpen: 0
+  m_AutoStart: 0
+  m_Loop: 0
   m_Volume: 1
   m_Muted: 0
   m_PlaybackRate: 1
@@ -261,6 +263,41 @@ MonoBehaviour:
     overridePath: 0
     pathLocation: 2
     path: 
+--- !u!114 &6013827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6013821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c3fea7f5cdc2d4c9651b9e7ce64ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLocalPosition: {x: 0, y: 0, z: 0}
+  currentLocalPosition: {x: 0, y: 0, z: 0}
+  startScale: {x: 0, y: 0, z: 0}
+  currentScale: {x: 0, y: 0, z: 0}
+  rect: {fileID: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  TargetColor: {r: 0, g: 0, b: 0, a: 0}
+  image: {fileID: 0}
+  ChildrenimageBases: []
+  b: 0
+--- !u!114 &6013828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6013821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c97866795b53b478438930a1569f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 0
+  durationTime: 0
 --- !u!1 &403390297
 GameObject:
   m_ObjectHideFlags: 0

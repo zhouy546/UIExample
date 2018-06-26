@@ -3,50 +3,105 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using RenderHeads.Media.AVProVideo;
 
-[RequireComponent(typeof(VideoPlayer))]
+[RequireComponent(typeof(MediaPlayer))]
+[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(NImage))]
 public class VideoBase : MonoBehaviour {
-    public RawImage rawImage;
+    protected NImage nImage;
 
-    private VideoPlayer videoPlayer;
+    protected MediaPlayer mediaPlayer;
 
-    private RenderTexture movie;
+    public float currentTime;
 
-    protected string path =" http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4";
+    public float durationTime;
+
+    protected string path;   
     // Use this for initialization
     void Start () {
+
         initialization();
-        playVideo();
+
+        setSlider(.5f);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        rawImage.texture = videoPlayer.texture;
 
     }
 
     void initialization() {
-       rawImage = GetComponent<RawImage>();
+        path = "SampleVideo.mp4";
 
-        videoPlayer = this.GetComponent<VideoPlayer>();
+        nImage = this.GetComponent<NImage>();
 
-        videoPlayer.renderMode = VideoRenderMode.APIOnly;
+        mediaPlayer = this.GetComponent<MediaPlayer>();
 
-        videoPlayer.source=VideoSource.Url;
+        mediaPlayer.m_VideoLocation = MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder;
 
-        videoPlayer.playOnAwake=false;
+        mediaPlayer.m_VideoPath = path;
 
-        path = Application.streamingAssetsPath +"/"+ "SampleVideo.mp4";       
-        
-        videoPlayer.url = path;
+        mediaPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder, path ,true);
 
+    }
+
+    public void SetVideoPath(string str) {
+        path = Application.streamingAssetsPath + "/" + str;
     }
 
     public void playVideo() {
-        videoPlayer.Play();
+        mediaPlayer.Play();
     }
 
     public void StopVideo() {
-        videoPlayer.Stop();
+        mediaPlayer.Stop();
     }
+
+    public void PauseVideo() {
+        mediaPlayer.Pause();
+    }
+
+    public void SetMovieTime(float value) {
+        float temp = nImage.Mapping(value, 0f, 1f, 0, getCurrentTime());
+        mediaPlayer.Control.Seek(temp);
+    }
+
+    public void ShowVideo(float time) {
+        nImage.ShowAll(time);
+    }
+
+    public void HideVideo(float time) {
+        nImage.HideAll(time);
+    }
+
+    public void PopUp() {
+        nImage.SetScale(Vector3.one, 1f);
+    }
+
+    public void ShinkDown() {
+        nImage.SetScale(Vector3.zero, 1f);
+    }
+
+    float getCurrentTime() {
+        return mediaPlayer.Control.GetCurrentTimeMs() / 1000f;
+    }
+
+    float getDurationTime() {
+        return mediaPlayer.Info.GetDurationMs() / 1000f;
+    }
+
+
+    public void setSlider(float value) {
+       // Debug.Log(getCurrentTime());
+
+        mediaPlayer.Pause();
+
+        float temp =    nImage.Mapping(value, 0f, 1f, 0f, getDurationTime()) * 1000;
+
+        mediaPlayer.Control.Seek(temp);
+
+        mediaPlayer.Play();
+    }
+
 }
