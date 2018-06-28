@@ -17,17 +17,18 @@ public class VideoBase : MonoBehaviour {
 
     public float durationTime;
 
+    public float VideoProportion {
+        get
+        {
+            return getCurrentTime() / getDurationTime();
+        }
+    }
+
     protected string path;   
     // Use this for initialization
-    void Start () {
+   public void Start () {
 
         initialization();
-
-        setSlider(.5f);
-    }
-	
-	// Update is called once per frame
-	void Update () {
 
     }
 
@@ -38,12 +39,7 @@ public class VideoBase : MonoBehaviour {
 
         mediaPlayer = this.GetComponent<MediaPlayer>();
 
-        mediaPlayer.m_VideoLocation = MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder;
-
-        mediaPlayer.m_VideoPath = path;
-
-        mediaPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder, path ,true);
-
+        LoadVideo(path);
     }
 
     public void SetVideoPath(string str) {
@@ -63,8 +59,8 @@ public class VideoBase : MonoBehaviour {
     }
 
     public void SetMovieTime(float value) {
-        float temp = nImage.Mapping(value, 0f, 1f, 0, getCurrentTime());
-        mediaPlayer.Control.Seek(temp);
+        float temp = nImage.Mapping(value, 0f, 1f, 0, getDurationTime());
+        mediaPlayer.Control.Seek(temp*1000);
     }
 
     public void ShowVideo(float time) {
@@ -93,7 +89,6 @@ public class VideoBase : MonoBehaviour {
 
 
     public void setSlider(float value) {
-       // Debug.Log(getCurrentTime());
 
         mediaPlayer.Pause();
 
@@ -102,6 +97,13 @@ public class VideoBase : MonoBehaviour {
         mediaPlayer.Control.Seek(temp);
 
         mediaPlayer.Play();
+    }
+
+
+
+    public void LoadVideo(string _path, bool isAutoPlay = true) {
+        path = _path;
+        mediaPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder, _path, isAutoPlay);
     }
 
 }

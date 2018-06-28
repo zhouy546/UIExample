@@ -17,14 +17,18 @@ public class ImageBase : IRect {
     private LTDescr  ColorLTDescr;
 	// Use this for initialization
 	public void Start () {
+        base.Start();
+
         initialization();
     }
 
     protected virtual void initialization() {
         image = this.GetComponent<Image>();
-        rect = this.GetComponent<RectTransform>();
+
         ChildrenimageBases = GetChindrenImg();
+
         currentColor = DefaultColor =image.color;
+
         startLocalPosition = currentLocalPosition = image.transform.localPosition;
     }
 

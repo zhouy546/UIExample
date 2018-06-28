@@ -9,6 +9,16 @@ public class IRect : MonoBehaviour {
     public RectTransform rect;
     protected LTDescr MoveLTDescr, ScalingLTDescr;
 
+    public void Start()
+    {
+        initialization();
+    }
+
+     void initialization()
+    {
+        rect = this.GetComponent<RectTransform>();
+    }
+
     public void SetLocation(Vector3 pos, float time, LeanTweenType leanTweenType = LeanTweenType.notUsed,Action OnMoveComplete = null) {
         if (MoveLTDescr != null)
         {
