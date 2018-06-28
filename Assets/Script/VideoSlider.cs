@@ -7,7 +7,7 @@ public class VideoSlider : SliderBase {
 
 	// Use this for initialization
 	new void Start () {
-        base.Start();
+        base.initialization();
 	}
 	
 	// Update is called once per frame

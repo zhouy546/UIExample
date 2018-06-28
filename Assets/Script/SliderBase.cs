@@ -10,20 +10,9 @@ public class SliderBase : IRect, IPointerDownHandler,IPointerUpHandler
     public bool IsOnClicked;
 
     protected Slider slider;
-	// Use this for initialization
-	public void Start () {
-        base.Start();
 
-        initialization();
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void initialization() {
+    public new virtual void initialization() {
+        base.initialization();
 
         slider = this.GetComponent<Slider>();
 

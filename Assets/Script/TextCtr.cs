@@ -6,10 +6,6 @@ public class TextCtr : MonoBehaviour {
     public TextBase textBase;
 
     public bool sToggle;
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

@@ -25,15 +25,12 @@ public class VideoBase : MonoBehaviour {
     }
 
     protected string path;   
-    // Use this for initialization
-   public void Start () {
 
-        initialization();
 
-    }
+   public  void initialization() {
 
-    void initialization() {
-        path = "SampleVideo.mp4";
+
+        path = "BigBuckBunny_360p30.mp4";
 
         nImage = this.GetComponent<NImage>();
 

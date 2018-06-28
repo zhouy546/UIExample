@@ -16,15 +16,10 @@ public class TextBase : IRect {
 
     private LTDescr ColorLTDescr;
 
-    // Use this for initialization
-    public new void Start () {
-        base.Start();
 
-        initialization();
-    }
-
-    protected virtual void initialization()
+    public  new virtual void initialization()
     {
+        base.initialization();
         text = this.GetComponent<Text>();
         ChildrenTextBases = GetChindrenText();
         currentColor = DefaultColor = text.color;

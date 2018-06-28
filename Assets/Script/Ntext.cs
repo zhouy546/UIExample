@@ -6,7 +6,7 @@ public class Ntext : TextBase {
 
 	// Use this for initialization
 	void Start () {
-        base.Start();
+        base.initialization();
 	}
 	
 	// Update is called once per frame

@@ -11,10 +11,10 @@ public class IRect : MonoBehaviour {
 
     public void Start()
     {
-        initialization();
+
     }
 
-     void initialization()
+   public virtual   void  initialization()
     {
         rect = this.GetComponent<RectTransform>();
     }

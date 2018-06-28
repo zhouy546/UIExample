@@ -15,14 +15,11 @@ public class ImageBase : IRect {
     public List<ImageBase> ChildrenimageBases;
 
     private LTDescr  ColorLTDescr;
-	// Use this for initialization
-	public void Start () {
-        base.Start();
 
-        initialization();
-    }
+    public new  virtual void initialization() {
 
-    protected virtual void initialization() {
+        base.initialization();
+
         image = this.GetComponent<Image>();
 
         ChildrenimageBases = GetChindrenImg();
