@@ -29,8 +29,11 @@ public class IRect : MonoBehaviour {
         }).setOnComplete(delegate() {
             currentLocalPosition = pos;
 
-            if(OnMoveComplete!=null)
-            OnMoveComplete();
+            if (OnMoveComplete != null) {
+                OnMoveComplete();
+            }
+            MoveLTDescr = null;
+
         });
     }
 
@@ -50,8 +53,11 @@ public class IRect : MonoBehaviour {
             currentScale = rect.localScale;
         }).setOnComplete(delegate () {
             currentScale = scale;
-            if (OnScalingComplete != null)
-            OnScalingComplete();
+            if (OnScalingComplete != null) {
+                OnScalingComplete();
+            }
+            ScalingLTDescr = null;
+
         });
     }
 

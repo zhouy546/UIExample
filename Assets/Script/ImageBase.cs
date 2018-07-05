@@ -53,7 +53,10 @@ public class ImageBase : IRect {
         {
             currentColor = color;
             if (onColorChangeComplete != null)
+            {
                 onColorChangeComplete();
+            }
+            ColorLTDescr = null;
         });
     }
     protected virtual void DoSomethingAfterColorChange()
