@@ -27,6 +27,12 @@ public class TextBase : IRect {
         startLocalPosition = currentLocalPosition = text.transform.localPosition;
     }
 
+    public void setRarCastTarget(bool b)
+    {
+        text.raycastTarget = b;
+
+    }
+
     public void ChangeColor(Color color, float time, LeanTweenType leanTweenType = LeanTweenType.notUsed, Action onColorChangeComplete = null)
     {
         if (ColorLTDescr != null)

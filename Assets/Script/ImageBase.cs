@@ -29,6 +29,12 @@ public class ImageBase : IRect {
         startLocalPosition = currentLocalPosition = image.transform.localPosition;
     }
 
+    public void setRarCastTarget(bool b)
+    {
+        image.raycastTarget = b;
+
+    }
+
     public void ChangeColor(Color color, float time, LeanTweenType leanTweenType = LeanTweenType.notUsed, Action onColorChangeComplete = null) {
         if (ColorLTDescr != null)
         {
